@@ -15,8 +15,10 @@ class NestedForm extends WidgetForm
     const DEFAULT_KEY_NAME = '__NESTED__';
 
     const REMOVE_FLAG_NAME = '_remove_';
-
     const REMOVE_FLAG_CLASS = 'form-removed';
+
+    const ORDER_FLAG_NAME = '_order_';
+    const ORDER_FLAG_CLASS = 'form-ordered';
 
     /**
      * @var string

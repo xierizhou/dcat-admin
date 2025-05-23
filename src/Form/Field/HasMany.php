@@ -415,6 +415,7 @@ class HasMany extends Field
 
         $hidden[] = $form->hidden($this->getKeyName());
         $hidden[] = $form->hidden(NestedForm::REMOVE_FLAG_NAME)->default(0)->addElementClass(NestedForm::REMOVE_FLAG_CLASS);
+        $hidden[] = $form->hidden(NestedForm::ORDER_FLAG_NAME)->default(0)->addElementClass(NestedForm::ORDER_FLAG_CLASS);
 
         // 使用column布局之后需要重新追加字段
         $form->layout()->appendToLastColumn($hidden);

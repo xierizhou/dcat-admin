@@ -1,4 +1,9 @@
-
+<style>
+    .sortable-ghost {
+        background: #f0f0f0;
+        opacity: 0.8;
+    }
+</style>
 <div class="row" style="margin-top: 10px;">
     <div class="{{$viewClass['label']}}"><h4 class="pull-right">{!! $label !!}</h4></div>
     <div class="{{$viewClass['field']}}"></div>
@@ -21,6 +26,7 @@
                         <label class="{{$viewClass['label']}} control-label"></label>
                         <div class="{{$viewClass['field']}}">
                             <div class="{{$columnClass}}-remove btn btn-white btn-sm pull-right"><i class="feather icon-trash">&nbsp;</i>{{ trans('admin.remove') }}</div>
+                            <div class="drag btn btn-white btn-sm pull-right mr-1" style="cursor: move;"><i class="fa fa-arrows"></i>&nbsp;</div>
                         </div>
                     </div>
                 @endif
@@ -40,6 +46,7 @@
                 <label class="{{$viewClass['label']}} control-label"></label>
                 <div class="{{$viewClass['field']}}">
                     <div class="{{$columnClass}}-remove btn btn-white btn-sm pull-right"><i class="feather icon-trash"></i>&nbsp;{{ trans('admin.remove') }}</div>
+                    <div class="drag btn btn-white btn-sm pull-right" style="cursor: move;"><i class="fa fa-arrows"></i>&nbsp;</div>
                 </div>
             </div>
             <hr>
@@ -57,7 +64,7 @@
 
 </div>
 
-<script>
+<script require="@sortable">
     var nestedIndex = {!! $count !!},
         container = '.has-many-{{ $columnClass }}',
         forms = '.has-many-{{ $columnClass  }}-forms';
@@ -68,12 +75,34 @@
             .replace(/{{ Dcat\Admin\Form\NestedForm::DEFAULT_PARENT_KEY_NAME }}/g, nestedIndex);
     }
 
+    var el = document.querySelector('.has-many-{{ $columnClass }}-forms');
+
+    function reorderNestedForm() {
+        var order_index = 1;
+        $(el).find('.has-many-{{ $columnClass }}-form').each(function () {
+            if(!$(this).find('.{{ Dcat\Admin\Form\NestedForm::REMOVE_FLAG_CLASS }}').val()){
+                $(this).find('.{{ Dcat\Admin\Form\NestedForm::ORDER_FLAG_CLASS }}').val(order_index)
+                order_index++;
+            }
+        })
+    }
+    reorderNestedForm()
+    Sortable.create(el, {
+        handle: '.drag', // 拖动按钮的 class
+        animation: 300,
+        ghostClass: 'sortable-ghost', // 拖动时的样式类
+        onEnd: reorderNestedForm
+    });
+
     $(container).on('click', '.{{$columnClass}}-add', function () {
         var tpl = $('template.{{ $columnClass }}-tpl');
 
         nestedIndex++;
 
         $(forms).append(replaceNestedFormIndex(tpl.html()));
+
+        reorderNestedForm()
+
     });
 
     $(container).on('click', '.{{$columnClass}}-remove', function () {
@@ -82,5 +111,7 @@
         $form.hide();
         $form.find('.{{ Dcat\Admin\Form\NestedForm::REMOVE_FLAG_CLASS }}').val(1);
         $form.find('[required]').prop('required', false);
+
+        reorderNestedForm()
     });
 </script>

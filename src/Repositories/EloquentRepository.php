@@ -489,6 +489,7 @@ class EloquentRepository extends Repository implements TreeRepository
         /* @var EloquentModel $builder */
         $model = $this->model();
 
+
         if (! $model->getKey()) {
             $model->exists = true;
 
@@ -820,6 +821,7 @@ class EloquentRepository extends Repository implements TreeRepository
 
             $relation = $model->$relationName();
 
+
             $oneToOneRelation = $relation instanceof Relations\HasOne
                 || $relation instanceof Relations\MorphOne
                 || $relation instanceof Relations\BelongsTo;
@@ -893,6 +895,15 @@ class EloquentRepository extends Repository implements TreeRepository
                 case $relation instanceof Relations\HasMany:
                 case $relation instanceof Relations\MorphMany:
 
+                    //get order column name
+                    $sortColumn = method_exists($relation->getRelated(), 'determineOrderColumnName')
+                    ? $relation->getRelated()->determineOrderColumnName()
+                    : null;
+
+
+
+
+
                     foreach ($prepared[$name] as $related) {
                         /** @var Relations\Relation $relation */
                         $relation = $model->$relationName();
@@ -912,6 +923,16 @@ class EloquentRepository extends Repository implements TreeRepository
                         $key = Arr::get($related, $relation->getModel()->getKeyName());
                         if ($key === null || $key === '') {
                             Arr::forget($related, $relation->getModel()->getKeyName());
+                        }
+
+                        if ($sortColumn && Arr::has($related,Form::ORDER_FLAG_NAME)) {
+
+                            $related[$sortColumn] = Arr::get($related,Form::ORDER_FLAG_NAME);
+                            Arr::forget($related, Form::ORDER_FLAG_NAME);
+
+                            if (method_exists($instance, 'disableSortWhenCreating')) {
+                                $instance->disableSortWhenCreating();
+                            }
                         }
 
                         $instance->fill($related);

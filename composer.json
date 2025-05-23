@@ -1,5 +1,5 @@
 {
-    "name": "dcat/laravel-admin",
+    "name": "rizhou/laravel-admin",
     "description": "dcat admin",
     "type": "library",
     "keywords": [
@@ -10,9 +10,13 @@
         "form",
         "laravel admin"
     ],
-    "homepage": "https://github.com/jqhph/dcat-admin",
+    "homepage": "https://github.com/xierizhou/dcat-admin",
     "license": "MIT",
     "authors": [
+        {
+            "name": "rizhou",
+            "email": "932188443@qq.com"
+        },
         {
             "name": "jqh",
             "email": "841324345@qq.com"

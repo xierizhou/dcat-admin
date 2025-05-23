@@ -111,6 +111,11 @@ class Form implements Renderable
     const CURRENT_URL_NAME = '_current_';
 
     /**
+     * Order flag in `has many` form.
+     */
+    const ORDER_FLAG_NAME = '_order_';
+
+    /**
      * Available fields.
      *
      * @var array
@@ -611,6 +616,7 @@ class Form implements Renderable
      */
     public function store(?array $data = null, $redirectTo = null)
     {
+
         try {
             if ($data) {
                 $this->request->replace($data);
@@ -786,6 +792,7 @@ class Form implements Renderable
         ?array $data = null,
         $redirectTo = null
     ) {
+
         try {
             if ($data) {
                 $this->request->replace($data);

@@ -25,6 +25,9 @@ class Table extends ArrayField
 .table-has-many .fields-group .form-group .remove {
     margin-top: 10px;
 }
+.table-has-many .fields-group .form-group .drag {
+    margin-top: 10px;
+}
 CSS
         );
 
