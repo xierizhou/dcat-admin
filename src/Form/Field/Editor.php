@@ -30,8 +30,8 @@ class Editor extends Field
             'codesample',
         ],
         'toolbar' => [
-            'undo redo | preview fullscreen | styleselect | fontsizeselect bold italic underline strikethrough forecolor backcolor | link image media blockquote removeformat codesample',
-            'alignleft aligncenter alignright  alignjustify| indent outdent bullist numlist table subscript superscript | code',
+            'undo redo | blocks fontsizeinput | bold italic underline strikethrough forecolor backcolor | align numlist bullist lineheight | link image media | table',
+            'outdent indent | blockquote codesample | subscript superscript |  fullscreen preview print removeformat code'
         ],
         'min_height' => 400,
         'save_enablewhendirty' => true,
