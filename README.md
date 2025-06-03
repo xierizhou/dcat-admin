@@ -1,3 +1,9 @@
+由于原项目作者([jqhph/dcat-admin](https://github.com/jqhph/dcat-admin))已停止维护，Fork原作者的项目进行二次开发，会修复部分自己使用过程中遇到的问题，并且会添加了更多功能。
+
+新增功能如下：
+- [v2.0.1]表单:hasMany & Table 增加拖动排序功能
+
+更多功能会持续开发中，也会根据原项目中的issues进行修复
 
 <div align="center">
     <img src="https://cdn.learnku.com/uploads/images/202009/27/38389/WFQxJ7qZ1k.png!large" height="80"> 
