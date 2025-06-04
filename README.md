@@ -1,8 +1,9 @@
 由于原项目作者([jqhph/dcat-admin](https://github.com/jqhph/dcat-admin))已停止维护，Fork原作者的项目进行二次开发，会修复部分自己使用过程中遇到的问题，并且会添加了更多功能。
 
 新增功能如下：
-- [v2.0.1] 表单:hasMany & Table 增加拖动排序功能
-- [v2.0.2] 富文本编辑器editor（TinyMCE）更新到v7
+- [v2.0.1] 表单：hasMany & Table 增加拖动排序功能
+- [v2.0.2] 表单：富文本编辑器editor（TinyMCE）更新到v7
+- [v2.0.3] 表单：内嵌 (embeds)支持子内嵌（原项目issues：https://github.com/jqhph/dcat-admin/issues/1863）
 
 更多功能会持续开发中，也会根据原项目中的issues进行修复
 

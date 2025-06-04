@@ -265,9 +265,17 @@ class Embeds extends Field implements FieldsCollection
      */
     public function render()
     {
-        $this->addVariables(['form' => $this->buildEmbeddedForm()]);
+        $this->addVariables([
+            'form' => $this->buildEmbeddedForm(),
+            'format_column' => $this->formatColumn($this->column),
+        ]);
 
         return parent::render();
+    }
+
+    protected function formatColumn(string $column)
+    {
+        return str_replace('.', '-', $column);
     }
 
     /**

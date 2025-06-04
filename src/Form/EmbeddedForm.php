@@ -237,7 +237,6 @@ class EmbeddedForm
     protected function formatField(Field $field)
     {
         $jsonKey = $field->column();
-
         $elementName = $elementClass = $errorKey = [];
 
         if (is_array($jsonKey)) {
@@ -247,6 +246,7 @@ class EmbeddedForm
                 $elementClass[$index] = $this->formatClass("{$this->column}_$name");
             }
         } else {
+
             $elementName = $this->formatName("{$this->column}.$jsonKey");
             $errorKey = "{$this->column}.$jsonKey";
             $elementClass = $this->formatClass("{$this->column}_$jsonKey");
@@ -277,6 +277,7 @@ class EmbeddedForm
      */
     public function pushField(Field $field)
     {
+
         $field = $this->formatField($field);
 
         $this->fields->push($field);
@@ -303,6 +304,8 @@ class EmbeddedForm
     {
         if ($className = Form::findFieldClass($method)) {
             $column = Arr::get($arguments, 0, '');
+
+            $column = $className === Field\Embeds::class ? "{$this->column}.$column" : $column;
 
             /** @var Field $field */
             $field = new $className($column, array_slice($arguments, 1));
