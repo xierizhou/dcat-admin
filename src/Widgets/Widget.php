@@ -241,6 +241,8 @@ abstract class Widget implements Renderable
      */
     protected function autoRender()
     {
+        $this->withResource();
+
         Content::composed(function () {
             if ($results = Helper::render($this->render())) {
                 Admin::html($results);

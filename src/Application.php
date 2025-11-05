@@ -77,6 +77,8 @@ class Application
 
             $this->switch(static::DEFAULT);
         }
+
+        Admin::scanBooted();
     }
 
     public function routes($pathOrCallback)

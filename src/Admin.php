@@ -17,6 +17,7 @@ use Dcat\Admin\Support\Helper;
 use Dcat\Admin\Traits\HasAssets;
 use Dcat\Admin\Traits\HasHtml;
 use Dcat\Admin\Traits\HasPermissions;
+use Dcat\Admin\Widgets\ListItem;
 use Illuminate\Auth\GuardHelpers;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Builder;
@@ -327,6 +328,14 @@ class Admin
     public static function callBooted()
     {
         Event::dispatch('admin:booted');
+    }
+
+    /**
+     * @return void
+     */
+    public static function scanBooted()
+    {
+        app(ListItem::class);
     }
 
     /**
