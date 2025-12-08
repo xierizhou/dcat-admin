@@ -75,7 +75,7 @@ body.sidebar-collapse {
 
 .main-sidebar {
   .nav-sidebar .nav-item > .nav-link {
-    font-size: 1.04rem;
+    font-size: 1rem;
     border-radius: .1rem;
   }
 }
@@ -116,7 +116,7 @@ body.sidebar-collapse {
 }
 
 .nav-sidebar>.nav-item>.nav-treeview  .nav-link p {
-  font-size: 14px;
+  font-size: 1rem;
 }
 
 // ----- sidebar-separate
@@ -190,8 +190,8 @@ body.sidebar-separate.dark-mode [class*=sidebar-dark-] .navbar-header {
   }
 
   .nav-item>.nav-link i {
-    margin-right: .71rem;
-    font-size: 1.2rem;
+    margin-right: .3rem;
+    font-size: 1rem;
   }
   .nav-treeview>.nav-item>.nav-link i {
     margin-right: .65rem;

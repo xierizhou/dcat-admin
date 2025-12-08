@@ -155,6 +155,16 @@
     display: none;
     list-style: none;
     padding: 0;
+    position: relative;
+    &:before{
+      content: "";
+      position: absolute;
+      width: 1px;
+      height: 100%;
+      background-color: #d3d3d3;
+      left: 24px;
+      border: 1px;
+    }
 
     > .nav-item {
       > .nav-link {
@@ -267,8 +277,9 @@
       }
 
       i {
-        margin-right: .75rem;
-        font-size: 1.2rem;
+        margin-right: .35rem;
+        font-size: 1rem;
+        color: #a8a8a8;
       }
       p i {
         margin-right: 0;

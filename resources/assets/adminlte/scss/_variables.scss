@@ -146,7 +146,7 @@ $sidebar-dark-header-color: hsla(0,0%,100%,.8) !default;
 // Light sidebar
 $sidebar-light-bg: $white !default;
 $sidebar-light-hover-bg: transparent !default;
-$sidebar-light-color: #555 !default;
+$sidebar-light-color: #525252 !default;
 $sidebar-light-hover-color: $sidebar-light-color !default;
 $sidebar-light-active-color: $white !default;
 $sidebar-light-submenu-bg: transparent !default;
@@ -158,8 +158,8 @@ $sidebar-light-submenu-active-bg: linear-gradient(118deg, $primary, rgba($primar
 $sidebar-light-header-color: $gray-800 !default;
 
 // SIDEBAR PADDING
-$sidebar-item-padding: 10px 10px 10px 25px;
-$sidebar-tree-item-padding: 5px 10px 7px 25px;
+$sidebar-item-padding: 10px 10px 10px 16px;
+$sidebar-tree-item-padding: 5px 10px 7px 43px;
 
 // SIDEBAR MINI
 // --------------------------------------------------------
