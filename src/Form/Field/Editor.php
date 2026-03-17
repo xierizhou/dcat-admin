@@ -33,6 +33,8 @@ class Editor extends Field
             'undo redo | blocks fontsizeinput | bold italic underline strikethrough forecolor backcolor | align numlist bullist lineheight | link image media | table',
             'outdent indent | blockquote codesample | subscript superscript |  fullscreen preview print removeformat code'
         ],
+
+        'max_height' => 800,
         'min_height' => 400,
         'save_enablewhendirty' => true,
         'convert_urls' => false,
@@ -98,7 +100,7 @@ class Editor extends Field
      */
     public function height(int $height)
     {
-        return $this->mergeOptions(['min_height' => $height]);
+        return $this->mergeOptions(['max_height' => $height]);
     }
 
     /**
