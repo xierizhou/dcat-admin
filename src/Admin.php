@@ -90,7 +90,7 @@ class Admin
      * @param  Closure|null  $builder
      * @return Menu
      */
-    public static function menu(Closure $builder = null)
+    public static function menu(?Closure $builder = null)
     {
         $menu = app('admin.menu');
 
@@ -158,7 +158,7 @@ class Admin
      * @param  Closure|null  $builder
      * @return Navbar
      */
-    public static function navbar(Closure $builder = null)
+    public static function navbar(?Closure $builder = null)
     {
         $navbar = app('admin.navbar');
 
@@ -210,7 +210,7 @@ class Admin
      * @param  Closure|null  $builder
      * @return SectionManager
      */
-    public static function section(Closure $builder = null)
+    public static function section(?Closure $builder = null)
     {
         $manager = app('admin.sections');
 
@@ -532,7 +532,7 @@ class Admin
      * @param  array|null  $variables
      * @return string
      */
-    public static function jsVariables(array $variables = null)
+    public static function jsVariables(?array $variables = null)
     {
         $jsVariables = static::context()->jsVariables ?: [];
 
